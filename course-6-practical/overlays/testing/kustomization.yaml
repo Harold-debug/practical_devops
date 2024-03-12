@@ -1,0 +1,6 @@
+resources:
+  - ../../base
+namespace: pytorch-test
+patchesStrategicMerge:
+  - replica_patch.yaml
+namePrefix: testing-

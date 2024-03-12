@@ -1,0 +1,4 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pytorch # This will be overridden in Kustomize for the testing environment

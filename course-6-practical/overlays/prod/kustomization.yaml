@@ -1,0 +1,13 @@
+resources:
+  - ../../base
+namespace: pytorch
+commonLabels:
+  env: prod
+images:
+  - name: torchserve
+    newName: pytorch/torchserve
+    newTag: 0.9.0-cpu
+patchesStrategicMerge:
+  - replica_patch.yaml
+  - ingress_patch.yaml
+namePrefix: prod-

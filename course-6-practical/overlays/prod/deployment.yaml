@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: torchserve-deployment
+spec:
+  replicas: 1 # This will be overridden in Kustomize for different environments
+  selector:
+    matchLabels:
+      app: torchserve
+  template:
+    metadata:
+      labels:
+        app: torchserve
+    spec:
+      containers:
+      - name: torchserve
+        image: pytorch/torchserve:latest-cpu # This will be overridden in Kustomize for the prod environment
+        ports:
+        - containerPort: 8080
+        - containerPort: 8081
+        - containerPort: 8082
+        - containerPort: 7070
+        - containerPort: 7071
+        volumeMounts:
+        - mountPath: "/home/model-server/model-store"
+          name: model-store-volume
+      volumes:
+      - name: model-store-volume
+        persistentVolumeClaim:
+          claimName: model-store-pvc
