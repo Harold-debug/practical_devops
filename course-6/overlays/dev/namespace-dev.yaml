@@ -1,0 +1,5 @@
+# kustomize/overlays/dev/namespace-dev.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: wordpress-dev

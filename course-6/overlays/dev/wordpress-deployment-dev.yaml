@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+  replicas: 1
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+  labels:
+    type: generated
+data:
+  MYSQL_ROOT_PASSWORD: aivancity

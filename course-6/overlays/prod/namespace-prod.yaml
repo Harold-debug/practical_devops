@@ -1,0 +1,5 @@
+# kustomize/overlays/prod/namespace-prod.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: wordpress-prod
